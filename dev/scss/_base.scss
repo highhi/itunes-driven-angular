@@ -1,0 +1,156 @@
+//
+// Base
+// --------------------------------------------------
+
+html, body {
+	min-width: $siteWidth;
+	background: #f1f1f1;
+	min-height: 100%;
+}
+
+body {
+	font-family: $fontHiragino;
+	font-size: $fontSize;
+	line-height: $lineHeight;
+	color: $fontColor;
+}
+
+// a
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline
+	}
+}
+
+.Header {
+	@extend %clear;
+	margin-bottom: 25px;
+}
+
+h1 {
+	font-family: 'Oleo Script', cursive;
+	font-size: 44px;
+	font-weight: normal;
+	float: left;
+	line-height: 1.2;
+}
+
+.Search {
+	padding: 12px 0 0 30px;
+	float: left;
+}
+
+.Wrapper {
+	margin: 20px;
+}
+
+.Search__area {
+	border-radius: 3px;
+	padding: 6px 2px;
+	border : 1px solid #ccc;
+	font-family: monospace;
+}
+
+.Search__button {
+	border : 1px solid #ccc;
+	border-radius: 3px;
+	padding: 2px 10px;
+	font-family: 'Lato', sans-serif;
+	letter-spacing: .05em;
+	font-size: 13px;
+	background: linear-gradient(to bottom, #545252 0%,#545252 58%,#1e1106 100%);
+	color: #fff;
+}
+
+.TrackTable {
+	display: table;
+	box-sizing: border-box;
+	width: 100%;
+	border-collapse:collapse;
+}
+
+.TrackTable__row {
+	display: table-row;
+	&.is-odd {
+		background: #F8F8F8;
+	}
+}
+
+.TrackTable__cell {
+	display: table-cell;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 12px;
+	font-weight: bold;
+	vertical-align: middle;
+
+	&.t-th {
+		text-align: left;
+		padding: 2px 10px;
+		vertical-align: top;
+		font-size: 14px;
+		font-family: 'Lato', sans-serif;
+		font-weight: normal;
+	}
+
+	&.t-td {
+		border-top : 1px solid #D3D3D3;
+		border-bottom : 1px solid #D3D3D3;
+	}
+
+	&.is-button {
+		width: 8%;
+		text-align: center;
+	}
+
+	&.is-cover {
+		width: 7%;	
+	}
+
+	&.is-track {
+		width: 20%;	
+	}
+
+	&.is-artist {
+		width: 20%;	
+	}
+
+	&.is-collection {
+		width: 25%;	
+	}
+
+	&.is-collePrice {
+		width: 10%;	
+	}
+
+	&.is-trackPrice {
+		width: 10%;	
+	}
+}
+
+.TrackTable__button {
+	border-radius: 2px;
+	border: 1px solid #ccc;
+	background: linear-gradient(to bottom, #f2f2f2 0%,#c9c9c9 100%);
+	box-sizing : border-box;
+	padding: 0 14px;
+
+}
+
+.Sort {
+	float: right;
+	padding-top: 12px;
+}
+
+.Sort__label {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.Sort__select {
+	background : #fff;
+	font-family: monospace;
+	height: 29px;
+	vertical-align: middle;
+}

@@ -1,0 +1,69 @@
+<header class="Header">
+	<h1>itunes driven for angularJS</h1>
+
+	<form ng-submit="doSearch()">
+		<div class="Search">
+			<input class="Search__area" type="text" class="search-query" placeholder="Search" ng-model="term">
+			<button class="Search__button" type="submit">Search</button>
+		</div>
+		<div class="Sort">
+			<span class="Sort__label">Sort by </span>
+			<select class="Sort__select" ng-model="selectedLabel" ng-options="sortItem.value as sortItem.label for sortItem in sortItems"></select>
+		</div>
+	</form>
+</header>
+
+<div class="TrackTable">
+	
+	<div class="TrackTable__row">
+		<div class="TrackTable__cell t-th is-button">
+		</div>
+		<div class="TrackTable__cell t-th is-cover">
+			Cover
+		</div>
+		<div class="TrackTable__cell t-th is-track">
+			Track
+		</div>
+		<div class="TrackTable__cell t-th is-artist">
+			Artist
+		</div>
+		<div class="TrackTable__cell t-th is-collection">
+			Collection
+		</div>
+		<div class="TrackTable__cell t-th is-collePrice">
+			Collection Price
+		</div>
+		<div class="TrackTable__cell t-th is-trackPrice">
+			Track Price
+		</div>
+	</div>
+				
+	<div class="TrackTable__row is-conents" ng-repeat="result in results | orderBy : selectedLabel" ng-class-odd="'is-odd'">
+		<div class="TrackTable__cell t-td is-button">
+			<button class="TrackTable__button" ng-click="onMusicButton($event, $index)" ng-class="{active: itemIndex === $index}">
+				{{ itemIndex === $index ? '︎■' : '▶'; }}
+			</button>
+		</div>
+		<div class="TrackTable__cell t-td is-cover">
+			<img class="Hateb__thumb" ng-src="{{result.artworkUrl60}}" alt="">
+		</div>
+		<div class="TrackTable__cell t-td is-track">
+			{{ result.trackName }}
+		</div>
+		<div class="TrackTable__cell t-td is-artist">
+			{{ result.artistName }}
+		</div>
+		<div class="TrackTable__cell t-td is-collection">
+			{{ result.collectionName }}
+		</div>
+		<div class="TrackTable__cell t-td is-collePrice">
+			{{ result.collectionPrice | number }}
+		</div>
+		<div class="TrackTable__cell t-td is-trackPrice">
+			{{ result.trackPrice | number }}
+		</div>
+	</div>
+
+</div>
+
+<audio ng-src="{{ trustSrc(currentMusic.src) }}" autoplay></audio>
